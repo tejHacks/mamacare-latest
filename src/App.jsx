@@ -1,28 +1,3 @@
-// import Navbar from "./components/Navbar";
-// import Hero from "./components/Hero";
-// import Features from "./components/Features";
-// import Community from "./components/Community"
-// import CTA from "./components/CTA";
-// import Footer from "./components/Footer";
-// import Chatbot from "./components/Chatbot";
-
-// function App() {
-//   return (
-//     <div className="min-h-screen bg-white text-blue-900 font-sans">
-//       <Navbar />
-//       <Hero />
-//       <Features />
-//       <Community />
-//       <Chatbot />
-//       <CTA />
-//       <Footer />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
