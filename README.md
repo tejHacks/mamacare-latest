@@ -131,7 +131,7 @@ or
 **✅ Daily Checklist / MVP Timeline (4–5 Days)**
 ---
 
-* 📅 Day 1 (Today)
+### 📅 Day 1 (Today)
  * Create wireframes for each feature
 
  * Initialize Vite + Tailwind setup (CDN if CLI fails)
@@ -140,7 +140,7 @@ or
 
  * Set up GitHub repo + branch structure
 
-* 📅 Day 2
+### 📅 Day 2
  * Finish UI skeleton (Navbar, Sidebar, Tabs)
 
  * Set up Routing with react-router-dom
@@ -149,7 +149,7 @@ or
 
  * Integrate Firebase Auth
 
-* 📅 Day 3
+### 📅 Day 3
  * Implement Soundboard + Baby Name explorer
 
  * Add Expense Tracker
@@ -190,8 +190,6 @@ or
  * Light/Dark mode toggle
 
 ---
-
-
 
 ## 🌺 MamaCare Hub — Feature List
 
