@@ -4,12 +4,27 @@ import { useNavigate } from "react-router-dom";
 export default function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const [status, setStatus] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Signing up...");
+
+    // Client-side validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus("Invalid email format");
+      return;
+    }
+    if (formData.name.length > 100) {
+      setStatus("Name is too long (max 100 characters)");
+      return;
+    }
+    if (formData.password.length < 8) {
+      setStatus("Password must be at least 8 characters");
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:5000/api/signup", {
@@ -19,11 +34,15 @@ const [showPassword, setShowPassword] = useState(false);
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Failed to sign up");
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to sign up");
+      }
 
-      setStatus("Signup successful! Redirecting...");
+      setStatus("Signup successful! Redirecting to verify email...");
       setFormData({ name: "", email: "", password: "" });
-      setTimeout(() => navigate("/login"), 2000);
+      if (data.redirect) {
+        setTimeout(() => navigate(data.redirect), 2000);
+      }
     } catch (error) {
       console.error("Signup error:", error);
       setStatus(error.message || "Failed to sign up. Try again.");
@@ -51,25 +70,24 @@ const [showPassword, setShowPassword] = useState(false);
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             required
           />
-        <div className="relative">
-  <input
-    type={showPassword ? "text" : "password"}
-    placeholder="Your Password"
-    className="w-full p-3 rounded-lg border border-blue-300 focus:ring-2 focus:ring-blue-500 outline-none pr-10"
-    value={formData.password}
-    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-    required
-  />
-  <button
-    type="button"
-    onClick={() => setShowPassword(!showPassword)}
-    className="absolute right-3 top-3 text-blue-600 hover:text-blue-800 focus:outline-none"
-    aria-label={showPassword ? "Hide password" : "Show password"}
-  >
-    {showPassword ? "🙈" : "👁️"}
-  </button>
-</div>
-
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Your Password"
+              className="w-full p-3 rounded-lg border border-blue-300 focus:ring-2 focus:ring-blue-500 outline-none pr-10"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-3 text-blue-600 hover:text-blue-800 focus:outline-none"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? "🙈" : "👁️"}
+            </button>
+          </div>
           <button
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg text-white font-semibold transition duration-300"
