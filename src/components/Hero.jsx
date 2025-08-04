@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { FaArrowDown, FaHeart, FaStar, FaSmile } from "react-icons/fa";
 
 import image1 from "/assets/woman.jpg";
-import image2 from "/assets/woman.jpg";
-import image3 from "/assets/woman.jpg";
-import image4 from "/assets/woman.jpg";
+import image2 from "../../public/assets/african-american-mother-taking-care-loving-her-baby-against-white-surface.jpg";
+import image3 from "../../public/assets/black-mother-taking-car-her-child (1).jpg";
+import image4 from "../../public/assets/black-mother-taking-car-her-child (2).jpg";
 
 const messages = [
   "A Modern Hub for Mothers",
