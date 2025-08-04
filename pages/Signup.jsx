@@ -10,19 +10,22 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("Signing up...");
+    console.log("Submitting form with:", formData);
 
-    // Client-side validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setStatus("Invalid email format");
+      console.log("Validation failed: Invalid email");
       return;
     }
     if (formData.name.length > 100) {
       setStatus("Name is too long (max 100 characters)");
+      console.log("Validation failed: Name too long");
       return;
     }
     if (formData.password.length < 8) {
       setStatus("Password must be at least 8 characters");
+      console.log("Validation failed: Password too short");
       return;
     }
 
@@ -33,18 +36,28 @@ export default function Signup() {
         body: JSON.stringify(formData),
       });
 
+      console.log("API response status:", response.status);
       const data = await response.json();
+      console.log("API response data:", data);
+
       if (!response.ok) {
-        throw new Error(data.message || "Failed to sign up");
+        throw new Error(data.message || `Signup failed with status ${response.status}`);
       }
 
       setStatus("Signup successful! Redirecting to verify email...");
       setFormData({ name: "", email: "", password: "" });
       if (data.redirect) {
-        setTimeout(() => navigate(data.redirect), 2000);
+        console.log("Navigating to:", data.redirect);
+        setTimeout(() => {
+          console.log("Executing navigation to:", data.redirect);
+          navigate(data.redirect);
+        }, 2000);
+      } else {
+        console.log("No redirect in response");
+        setStatus("Signup successful, but no redirect provided");
       }
     } catch (error) {
-      console.error("Signup error:", error);
+      console.error("Signup error:", error.message);
       setStatus(error.message || "Failed to sign up. Try again.");
     }
   };

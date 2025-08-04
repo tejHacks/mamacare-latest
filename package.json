@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.7",
+    "@heroicons/react": "^2.2.0",
     "@supabase/supabase-js": "^2.50.5",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.10.0",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
-    "framer-motion": "^12.23.11",
+    "framer-motion": "^12.23.12",
+    "headlessui": "^0.0.0",
     "helmet": "^8.1.0",
     "multer": "^2.0.2",
     "nodemailer": "^7.0.5",

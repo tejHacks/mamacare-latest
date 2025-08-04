@@ -10,6 +10,14 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import VerifyEmail from "../pages/VerifyEmail";
 import Dashboard from "../pages/Dashboard";
+import BabyProfiles from "../pages/BabyProfiles";
+import Schedules from "../pages/Schedules";
+import Expenses from "../pages/Expenses";
+import Milestones from "../pages/Milestones";
+import DailyReads from "../pages/DailyReads";
+import Scriptures from "../pages/Scriptures";
+import Profile from "../pages/Profile";
+import Settings from "../pages/Settings";
 
 function App() {
   return (
@@ -33,10 +41,15 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/verify" element={<VerifyEmail />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/babies" element={<div>Baby Profiles (Coming Soon)</div>} />
-        <Route path="/schedules" element={<div>Baby Scheduler (Coming Soon)</div>} />
-        <Route path="/expenses" element={<div>Expense Tracker (Coming Soon)</div>} />
-        <Route path="/milestones" element={<div>Milestones (Coming Soon)</div>} />
+        <Route path="/babies" element={<BabyProfiles />} />
+        <Route path="/schedules" element={<Schedules />} />
+        <Route path="/expenses" element={<Expenses />} />
+        <Route path="/milestones" element={<Milestones />} />
+        <Route path="/daily-reads" element={<DailyReads />} />
+        <Route path="/scriptures" element={<Scriptures />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
     </div>
   );
