@@ -71,3 +71,66 @@ CREATE TABLE IF NOT EXISTS scriptures (
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+
+CREATE TABLE bmi_records (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  weight DECIMAL(5,2) NOT NULL,
+  height DECIMAL(5,2) NOT NULL,
+  bmi DECIMAL(5,2) GENERATED ALWAYS AS (weight / (height * height)) STORED,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Baby Measurements
+CREATE TABLE baby_measurements (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  baby_id INT NOT NULL,
+  height DECIMAL(5,2) NOT NULL,
+  weight DECIMAL(5,2) NOT NULL,
+  measurement_date DATE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (baby_id) REFERENCES babies(id)
+);
+
+-- Birthday Reminders
+CREATE TABLE birthday_reminders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  baby_id INT NOT NULL,
+  reminder_date DATE NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (baby_id) REFERENCES babies(id)
+);
+
+-- Accessories
+CREATE TABLE accessories (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  type ENUM('toy', 'clothing', 'maternal') NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Jaundice Checks
+CREATE TABLE jaundice_checks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  baby_id INT NOT NULL,
+  symptoms JSON NOT NULL,
+  result TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (baby_id) REFERENCES babies(id)
+);
+
+-- Skin Disease Checks
+CREATE TABLE skin_disease_checks (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  baby_id INT NOT NULL,
+  symptoms JSON NOT NULL,
+  result TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (baby_id) REFERENCES babies(id)
+);

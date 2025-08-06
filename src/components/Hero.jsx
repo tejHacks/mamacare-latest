@@ -5,8 +5,16 @@ import { FaArrowDown, FaHeart, FaStar, FaSmile } from "react-icons/fa";
 
 import image1 from "/assets/woman.jpg";
 import image2 from "../../public/assets/african-american-mother-taking-care-loving-her-baby-against-white-surface.jpg";
-import image3 from "../../public/assets/black-mother-taking-car-her-child (1).jpg";
-import image4 from "../../public/assets/black-mother-taking-car-her-child (2).jpg";
+// import image2 from "/assets/woman.jpg";
+
+import image3 from "../../public/assets/black-mother-taking-car-her-child-1.jpg";
+import image4 from "../../public/assets/black-mother-taking-car-her-child-2.jpg";
+// import image3 from "/assets/woman.jpg";
+// import image4 from "/assets/woman.jpg";
+
+
+// import image1 from "/assets/woman.jpg";
+
 
 const messages = [
   "A Modern Hub for Mothers",
@@ -119,11 +127,20 @@ export default function Hero() {
             exit={{ opacity: 0, x: 50, y: 10 }}
             transition={{ duration: 1.8 }}
           >
-            <img
-              src={images[index % images.length]}
-              alt="Mother and child"
-              className="rounded-xl shadow-xl border border-blue-100 w-full max-w-md mx-auto object-cover"
-            />
+        <img
+  src={images[index % images.length]}
+  alt="Mother and child"
+  loading="lazy"
+  style={{
+    width: "100%",
+    height: "500px", // you can go even 550px if you like
+    maxWidth: "600px", // bump this from 400px to 600px
+    objectFit: "cover",
+    borderRadius: "1rem",
+  }}
+  className="rounded-xl shadow-xl border border-blue-100 mx-auto object-cover"
+/>
+
           </motion.div>
         </AnimatePresence>
       </div>
