@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { FaArrowDown, FaHeart, FaStar, FaSmile } from "react-icons/fa";
 
 import image1 from "../assets/woman.jpg";
-import image2 from "../assets/african-american-mother-taking-care-loving-her-baby-against-white-surface.jpg";
-import image3 from "../assets/black-mother-taking-car-her-child-1.jpg";
-import image4 from "../assets/black-mother-taking-car-her-child-2.jpg";
+import image2 from "../assets/snap.jpg";
+import image3 from "../assets/spam.jpg";
+import image4 from "../assets/latest.jpg";
 
 const messages = [
   "A Loving Hub for Moms",
@@ -26,7 +26,7 @@ export default function Hero() {
     let i = 0;
     const typingSpeed = 70;
     const typingDuration = current.length * typingSpeed;
-    const totalDisplayTime = 5000;
+    const totalDisplayTime = 8000;
     const delayAfterTyping = totalDisplayTime - typingDuration;
 
     const interval = setInterval(() => {
