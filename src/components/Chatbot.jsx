@@ -65,7 +65,7 @@ export default function Chatbot() {
       transition={{ duration: 1 }}
       className="bg-[#FFF5F5] p-4 sm:p-6 md:p-10 rounded-xl border border-[#F8E1E1] text-[#4A2C5A] max-w-4xl mx-auto my-12 shadow-xl max-w-full overflow-x-hidden"
     >
-      <h2 className="text-3xl font-lora mb-6 text-center text-[#A78BFA]">MamaBot</h2>
+      <h2 className="text-3xl font-lora mb-6 text-center text-[#2c00b1]">MamaBot</h2>
 
       <motion.div
         className="space-y-4 h-96 overflow-y-auto mb-4 p-2 bg-[#FDFDFD] rounded-lg overflow-x-hidden break-words"
