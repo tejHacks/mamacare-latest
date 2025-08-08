@@ -75,6 +75,15 @@ const features = [
     desc: "Get baby needs and accessories, from cute toys to essentials, all in one place.",
     emoji: "🧸",
   },
+  {
+    title: "Baby Lullabies",
+    desc: "Soothe your baby with calming Spotify lullabies, perfect for nap time.",
+    emoji: "🎵",
+    button: {
+      text: "Play Lullabies Now, Mama! 🎵",
+      link: "https://open.spotify.com/playlist/37i9dQZF1DX5B3X0rN7R6Q",
+    },
+  },
 ];
 
 const floatAnimation = {
