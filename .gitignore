@@ -11,6 +11,7 @@ node_modules
 backend
 dist
 dist-ssr
+
 *.local
 .env
 .env.bak
@@ -25,3 +26,6 @@ dist-ssr
 *.sln
 *.sw?
 node_modules/
+api/
+backend/
+mamacare-db/
