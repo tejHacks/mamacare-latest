@@ -78,11 +78,11 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
           >
-            <button className="bg-[#D4A017] hover:bg-[#E8B923] text-[#FDFDFD] px-6 py-3 rounded-full font-bold shadow-lg transition font-[Poppins]">
+            <a href="/signup" className="bg-[#D4A017] hover:bg-[#E8B923] text-[#FDFDFD] px-6 py-3 rounded-full font-bold shadow-lg transition font-[Poppins]">
               Begin Your Journey
-            </button>
+            </a>
             <a
-              href="#learn-more"
+              href="#features"
               className="bg-[#F8E1E1] hover:bg-[#F8B5B0] text-[#4A2C5A] px-6 py-3 rounded-full font-bold shadow-lg transition font-[Poppins]"
             >
               Discover More
