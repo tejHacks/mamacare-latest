@@ -45,6 +45,10 @@ const features = [
     title: "Neonatal Jaundice Predictor",
     desc: "Use our AI powered tool to predict and monitor jaundice levels in your newborn.",
     emoji: "🟡",
+    button: {
+      text: "Check Jaundice Now, Mama! 🟡",
+      link: "https://aquamarine-starship-c220c5.netlify.app/",
+    },
   },
   {
     title: "BMI Calculator",
@@ -144,7 +148,17 @@ export default function Features() {
                 <h3 className="text-xl font-bold text-[#4A2C5A] mb-2 font-[Lora]">
                   {feature.title}
                 </h3>
-                <p className="text-[#4A2C5A] text-sm font-[Poppins]">{feature.desc}</p>
+                <p className="text-[#4A2C5A] text-sm font-[Poppins] mb-4">{feature.desc}</p>
+                {feature.button && (
+                  <motion.a
+                    href={feature.button.link}
+                    className="inline-block bg-[#D4A017] hover:bg-[#E8B923] text-[#FDFDFD] font-[Lora] font-bold text-base px-6 py-3 rounded-xl border-2 border-[#A78BFA] shadow-md transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {feature.button.text}
+                  </motion.a>
+                )}
               </motion.div>
             ))}
           </AnimatePresence>
