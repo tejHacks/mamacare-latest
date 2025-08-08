@@ -1,145 +1,159 @@
-  import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-  const features = [
-    // Regular Features
-    {
-      title: "Baby Scheduler & Wellness",
-      desc: "Track feeding, sleep, doctor visits & vaccines. All in one cuddly dashboard.",
-      emoji: "🍼",
-    },
-    {
-      title: "Expense Tracker",
-      desc: "Monitor baby-related expenses, diapers to doctor bills, with budgeting ease.",
-      emoji: "💰",
-    },
-    {
-      title: "Milestone Logger",
-      desc: "Capture & archive precious firsts — steps, giggles, and messy face photos.",
-      emoji: "📸",
-    },
-    {
-      title: "AI Assistant",
-      desc: "Ask MamaBot anything — parenting tips, baby food, teething remedies, etc.",
-      emoji: "🤖",
-    },
-    {
-      title: "Short Daily Reads",
-      desc: "Micro-reads to keep mama informed, inspired & uplifted during busy days.",
-      emoji: "📚",
-    },
-    {
-      title: "Growth Tracker",
-      desc: "Monitor your baby's growth with charts and milestones, ensuring healthy development.",
-      emoji: "📈",
-    },
-    {
-      title: "Personalized Tips",
-      desc: "Receive tailored parenting tips based on your baby's age and needs.",
-      emoji: "✨",
-    },
-    {
-      title: "Emergency Contacts",
-      desc: "Store important contacts like pediatricians, family members, and emergency services.",
-      emoji: "📞",
-    },
-    {
-      title: "Neonatal Jaundice Predictor",
-      desc: "Predict and monitor jaundice levels in newborns with our AI-powered tool.",
-      emoji: "🟡",
-    },
-    // TOOLS (now merged as features)
-    {
-      title: "📏 BMI Calculator",
-      desc: "Track your baby's growth using standard body mass metrics.",
-    },
-    {
-      title: "✝️ Scripture Memorizer",
-      desc: "Feed your soul with memory verses every day.",
-    },
-    {
-      title: "⏰ Daily Reminder",
-      desc: "Stay on top of feeds, meds, tasks, and prayer times.",
-    },
-    {
-      title: "🛒 Grocery Tracker",
-      desc: "Plan baby meals and never forget a shopping item again.",
-    },
-    {
-      title: "👩🏾‍⚕️ Pediatrician Finder",
-      desc: "Locate trusted pediatricians around you in seconds.",
-    },
-    {
-      title: "🧸 Toy Store Access",
-      desc: "Cute, affordable, and essential baby needs at your fingertips.",
-    },
-    {
-      title: "🗺️ Interactive Maps",
-      desc: "Real Time Map to find health care centers,and find your way around places. ",
-    },
-    {
-      title: "🎶 Baby Lullabies",
-      desc: "Calming songs to help your baby snooze faster.",
-    },
-    {
-      title: "🤰 Pregnancy Tracker",
-      desc: "Watch baby grow week by week, from womb to arms.",
-    },
-  ];
+const features = [
+  {
+    title: "Baby Scheduler and Wellness",
+    desc: "Keep track of feeding, sleep, doctor visits, and vaccines in one cozy, easy to use dashboard.",
+    emoji: "🍼",
+  },
+  {
+    title: "Expense Tracker",
+    desc: "Monitor all baby related expenses, from diapers to doctor bills, with simple budgeting tools.",
+    emoji: "💰",
+  },
+  {
+    title: "Milestone Logger",
+    desc: "Capture every precious first, like steps, giggles, and those adorable messy face moments.",
+    emoji: "📸",
+  },
+  {
+    title: "AI Assistant",
+    desc: "Ask MamaBot for parenting tips, baby food ideas, teething remedies, or anything on your mind.",
+    emoji: "🤖",
+  },
+  {
+    title: "Short Daily Reads",
+    desc: "Quick, uplifting reads to keep you informed and inspired during your busy mom days.",
+    emoji: "📚",
+  },
+  {
+    title: "Growth Tracker",
+    desc: "Follow your baby's growth with clear charts and milestones to ensure healthy development.",
+    emoji: "📈",
+  },
+  {
+    title: "Personalized Tips",
+    desc: "Get parenting advice tailored to your baby's age and unique needs, just for you.",
+    emoji: "✨",
+  },
+  {
+    title: "Emergency Contacts",
+    desc: "Store key contacts like pediatricians, family, and emergency services for quick access.",
+    emoji: "📞",
+  },
+  {
+    title: "Neonatal Jaundice Predictor",
+    desc: "Use our AI powered tool to predict and monitor jaundice levels in your newborn.",
+    emoji: "🟡",
+  },
+  {
+    title: "BMI Calculator",
+    desc: "Track your baby's growth using standard body mass metrics for peace of mind.",
+    emoji: "📏",
+  },
+  {
+    title: "Daily Reminder",
+    desc: "Stay on top of feeds, meds, and tasks with gentle, customizable reminders.",
+    emoji: "⏰",
+  },
+  {
+    title: "Grocery Tracker",
+    desc: "Plan baby meals and keep your shopping list organized with ease.",
+    emoji: "🛒",
+  },
+  {
+    title: "Pediatrician Finder",
+    desc: "Find trusted pediatricians near you in just a few clicks.",
+    emoji: "👩🏾‍⚕️",
+  },
+  {
+    title: "Store",
+    desc: "Get baby needs and accessories, from cute toys to essentials, all in one place.",
+    emoji: "🧸",
+  },
+];
 
-  const floatAnimation = {
-    animate: {
-      y: [0, -10, 0, 10, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
+const floatAnimation = {
+  animate: {
+    y: [0, -10, 0, 10, 0],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
     },
-  };
+  },
+};
 
-  export default function Features() {
-    return (
-      <section className="py-24 relative bg-white">
-        {/* Glossy Blue Background */}
-        <div className="absolute inset-0 bg-white" />
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  }),
+};
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              Tools & Features For The Modern Mama
-            </h2>
-            <p className="text-xl text-blue-700 max-w-3xl mx-auto">
-              From diapers to devotionals — everything you need, all in one place.
-            </p>
-          </div>
+export default function Features() {
+  return (
+    <section className="py-24 relative bg-[#2f005d]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl lg:text-5xl font-bold mb-6 bg-gradient-to-r from-[#e7dfff] to-[#D4A017] bg-clip-text text-transparent font-[Lora]"
+          >
+            Tools and Features for Every Mom
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-xl text-[#ffffff] max-w-3xl mx-auto font-[Poppins]"
+          >
+            Everything you need to make motherhood a little easier, all wrapped in love.
+          </motion.p>
+        </div>
 
-          {/* Grid Display */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence>
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200 rounded-2xl p-6 border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-xl transition-all duration-300 text-center"
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0, 0, 0, 0.1)" }}
+                className="bg-gradient-to-br from-[#FDFDFD] via-[#FFF5F5] to-[#F8E1E1] rounded-2xl p-6 border border-[#F8E1E1] hover:border-[#A78BFA] shadow-md hover:shadow-xl transition-all duration-300 text-center"
               >
-                {/* Floating Emoji */}
                 <motion.div
                   variants={floatAnimation}
                   animate="animate"
                   whileHover={{ scale: 1.1, rotate: 3 }}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-white text-3xl shadow-lg"
+                  className="bg-gradient-to-r from-[#A78BFA] to-[#D4A017] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-white text-3xl shadow-lg"
                 >
-                  {feature.emoji || feature.title.match(/^.{2}/)?.[0] || "🌟"}
+                  {feature.emoji || "🌟"}
                 </motion.div>
 
-                <h3 className="text-xl font-bold text-blue-900 mb-2">
-                  {feature.title.replace(/^[^a-zA-Z]+/, "")}
+                <h3 className="text-xl font-bold text-[#4A2C5A] mb-2 font-[Lora]">
+                  {feature.title}
                 </h3>
-                <p className="text-blue-700 text-sm">{feature.desc}</p>
+                <p className="text-[#4A2C5A] text-sm font-[Poppins]">{feature.desc}</p>
               </motion.div>
             ))}
-          </div>
+          </AnimatePresence>
         </div>
-      </section>
-    );
-  }
+      </div>
+
+      <style jsx>{`
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Poppins:wght@400;600&display=swap');
+      `}</style>
+    </section>
+  );
+}

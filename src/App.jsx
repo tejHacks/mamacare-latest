@@ -61,10 +61,13 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
-import Community from "./components/Community";
+// import Community from "./components/Community";
 import Chatbot from "./components/Chatbot";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
+
+// the ages in the dashboard of the app(Teju can check this pages later for his contributions when hes done with the backend)
+
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import VerifyEmail from "../pages/VerifyEmail";
@@ -88,7 +91,7 @@ import SkinDiseaseDetector from "../pages/SkinDiseaseDetector";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-blue-900 font-sans">
+    <div className="min-h-screen bg-[#FFF5F5] text-[#4A2C5A] font-poppins max-w-full overflow-x-hidden">
       <Routes>
         <Route
           path="/"
@@ -97,7 +100,7 @@ function App() {
               <Navbar />
               <div id="hero"><Hero /></div>
               <div id="features"><Features /></div>
-              <div id="community"><Community /></div>
+              {/* <div id="community"><Community /></div> */}
               <div id="chatbot"><Chatbot /></div>
               <CTA />
               <div id="footer"><Footer /></div>

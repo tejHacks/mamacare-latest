@@ -1,12 +1,19 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-.font-comic {
-  font-family: 'Comic Neue', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.font-lora {
+  font-family: 'Lora', serif;
   font-weight: 700;
 }
-.font-comic{
-    font-family: 'Poppins', sans-serif;
-    font-weight:600;
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+.font-poppins-bold {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
